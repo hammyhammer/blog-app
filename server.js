@@ -3,7 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { initMongoServer } from "./db/connection";
 import posts from "./routes/posts.js";
-import bodyParser from "bod-parser";
+import bodyParser from "body-parser";
 // import cookieParser from "cookie-parser";
 
 initMongoServer();
