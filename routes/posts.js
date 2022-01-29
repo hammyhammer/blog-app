@@ -2,7 +2,7 @@ import express from "express";
 import defaultController from "../controllers/defaultController.js";
 // import { authRequired } from "../controllers/auth/authController.js";
 
-import { fetchAllPosts, deletePost, updatePostById, findPostById } from "../controllers/post/post.controller.js"; //USER CONTROLLER
+import { fetchAllPosts, deletePost, updatePostById, findPostById, createPost } from "../controllers/post/post.controller.js"; //USER CONTROLLER
 // import { signUpUser, loginUser, logoutUser } from "../controllers/auth/authController.js"; //AUTH CONTROLLER
 
 const Router = express.Router();
@@ -23,6 +23,10 @@ Router.get("/", defaultController)
   .get("/posts", fetchAllPosts)
 
   /**
+   * Create a new post
+   */
+  .post("/new", createPost)
+  /**
    * Login Route
    */
   // .post("/login", loginUser)
@@ -40,7 +44,7 @@ Router.get("/", defaultController)
   /**
    * Updating post
    */
-  .put("/update/:content", updatePostById)
+  .put("/update/:id", updatePostById)
 
   /**
    * Finding post by id
