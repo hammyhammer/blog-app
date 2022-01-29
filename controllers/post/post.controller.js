@@ -1,4 +1,5 @@
-import Post from "../../models/post"
+import Post from "../../models/post.js"
+import errorHandler from "../../utilities/error.js";
 
 export const fetchAllPosts = async (req, res) => {
   try {
@@ -17,8 +18,37 @@ export const fetchAllPosts = async (req, res) => {
     }
   }
   catch (error) {
-    return res.status(400).json(errorHAndler(true, "Error Fetching Users"))
+    return res.status(400).json(errorHandler(true, "Error Fetching Users"))
   }
+}
+
+export const createPost = (req, res) => {
+  try {
+    const newPost = new Post({
+      title: req.body.title,
+      content: req.body.content
+    })
+
+    if (newPost) {
+      res.json(errorHandler(false, "New blog post created!"))
+      newPost.save()
+    } else {
+      return res.json(errorHandler(true, "Error creating a new blog post"))
+    }
+  } catch (error) {
+    return res.json(errorHandler(true, "Error creating a new blog post"))
+  }
+  //     (req.body)
+  //   product.save()
+  //   res.json(post)
+  //   (error, createdPost) => {
+  // if (createdPost) {
+  //   res.json(errorHandler(false, "Successfully Created Post", createdPost))
+  // }
+  // } catch (error){
+  // console.log(error)
+  //   res.json({ error: error.message })
+  // }
 }
 
 export const updatePostById = (req, res) => {
