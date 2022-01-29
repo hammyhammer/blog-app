@@ -7,11 +7,11 @@ export default function postList() {
     const [post, setPosts] = useState([]);
 
     useEffect(() => {
-        const fecthPosts = async () => {
+        const fetchPosts = async () => {
             const res = await api.get(/** waiting for api config */)
             setPosts(res.data.records);
         };
-        fecthPosts()
+        fetchPosts()
     }, []);
 
   return (
