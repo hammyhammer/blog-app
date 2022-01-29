@@ -11,7 +11,7 @@ export const getPosts = async () => {
 
 export const getPost = async id => {
   try {
-    const res = await api.get(`/products/${id}`)
+    const res = await api.get(`/posts/:${id}`)
     return res.data
   } catch (error) {
     throw error
@@ -27,18 +27,18 @@ export const createPost = async post => {
   }
 }
 
-export const updateProduct = async (id, post) => {
+export const updatePost = async (id, post) => {
   try {
-    const res = await api.put(`/products/${id}`, post)
+    const res = await api.put(`/posts/:${id}`, post)
     return res.data
   } catch (error) {
     throw error
   }
 }
 
-export const deleteProduct = async id => {
+export const deletePost = async id => {
   try {
-    const res = await api.delete(`/products/${id}`)
+    const res = await api.delete(`/posts/:${id}`)
     return res.data
   } catch (error) {
     throw error
