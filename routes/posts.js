@@ -2,7 +2,7 @@ import express from "express";
 import defaultController from "../controllers/defaultController.js";
 // import { authRequired } from "../controllers/auth/authController.js";
 
-import { fetchAllUsers, deleteUser, updateUser, findUserById } from "../controllers/user/user.controller.js"; //USER CONTROLLER
+import { fetchAllPosts, deletePost, updatePostById, findPostById } from "../controllers/post/post.controller.js"; //USER CONTROLLER
 // import { signUpUser, loginUser, logoutUser } from "../controllers/auth/authController.js"; //AUTH CONTROLLER
 
 const Router = express.Router();
@@ -18,9 +18,9 @@ Router.get("/", defaultController)
   // .post("/signup", signUpUser)
 
   /**
-   * Get all user(s)
+   * Get all post(s)
    */
-  .get("/users", fetchAllUsers)
+  .get("/posts", fetchAllPosts)
 
   /**
    * Login Route
@@ -33,17 +33,17 @@ Router.get("/", defaultController)
   // .get("/logout", logoutUser)
 
   /**
-   * Delete User
+   * Delete post
    */
-  .delete('/delete/:id', deleteUser)
+  .delete('/delete/:id', deletePost)
 
   /**
-   * Updating user
+   * Updating post
    */
-  .put("/update/:userName", updateUser)
+  .put("/update/:content", updatePostById)
 
   /**
-   * Finding user by id
+   * Finding post by id
    */
-  .get("/user/:id", findUserById)
+  .get("/post/:id", findPostById)
 export default Router;

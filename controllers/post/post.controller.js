@@ -1,4 +1,5 @@
-import Post from "../../models/post"
+import Post from "../../models/post.js"
+import errorHandler from "../../utilities/error.js";
 
 export const fetchAllPosts = async (req, res) => {
   try {
