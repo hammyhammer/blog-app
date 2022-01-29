@@ -1,8 +1,8 @@
 import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
-import { initMongoServer } from "./db/connection";
-import posts from "./routes/posts.js";
+import { initMongoServer } from "./db/connection.js";
+// import posts from "./routes/posts.js";
 import bodyParser from "body-parser";
 // import cookieParser from "cookie-parser";
 
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const db = mongoose.connection;
 
 app.use(express.json());
-app.use("/api", posts);
+// app.use("/api", posts);
 // app.use(cookieParser());
 app.use(bodyParser.json()).use(bodyParser.urlencoded({ extended: false }));
 
