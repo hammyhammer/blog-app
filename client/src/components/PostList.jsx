@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../services/apiConfig";
 
+import Layout from "./Layout";
 
-export default function postList() {
+export default function PostList() {
     const [post, setPosts] = useState([]);
 
     useEffect(() => {
@@ -14,22 +15,22 @@ export default function postList() {
         fetchPosts()
     }, []);
 
-  return (
-    <div>
-        <ul> 
-            {postList.map((post) => {
-                return (
-                    <li key={post.id}>
-                        <Link to={`/api/${post.id}`}>
-                            <div>
-                                <h3>{post.fields.title}</h3>
-                                <h4>{post.fields.content}</h4>
-                            </div>
-                        </Link>
-                    </li>
-                )
-            })}
-        </ul>
-    </div>
-  )
-}
+    return (
+        <Layout>
+            <ul> 
+                {post.map((post) => {
+                    return (
+                        <li key={post.id}>
+                            <Link to={`/api/${post.id}`}>
+                                <div>
+                                    <h3>{post.fields.title}</h3>
+                                    <h4>{post.fields.content}</h4>
+                                </div>
+                            </Link>
+                        </li>
+                    )
+                })}
+            </ul>
+        </Layout>
+    );
+};
