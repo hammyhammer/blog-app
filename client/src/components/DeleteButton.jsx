@@ -13,4 +13,4 @@ export default function DeleteButton(props) {
   };
 
   return <button onClick={handleDelete}>Delete Post</button>;
-}
+};
