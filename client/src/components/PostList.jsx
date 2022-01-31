@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import DeleteButton from "../components/DeleteButton.jsx"
-import { deletePost } from "../services/post.js";
 import { getPosts } from "../services/post.js"
 import Layout from "./Layout";
 
@@ -15,6 +15,7 @@ export default function PostList() {
     };
     fetchPosts();
   }, [toggle]);
+  
   const handleToggle = () => {
     setToggle(!toggle)
   }
@@ -23,19 +24,24 @@ export default function PostList() {
     <Layout>
       <ul>
         {posts?.map((post) => {
-
           return (
             <li
-              key={post._id}
               className="cards"
+              key={post._id}
             >
-              <div>
-                <h3>{post.title}</h3>
-                <h4>{post.content}</h4>
-                <DeleteButton handleToggle={handleToggle}
-                  _id={post._id}
-                />
-              </div>
+              <Link
+                to = {`/update/${post._id}`}
+                _id={post._id}
+                title={post.title}
+                content={post.content}
+              >
+                  <h3>{post.title}</h3>
+                  <h4>{post.content}</h4>
+              </Link>
+              <DeleteButton 
+                handleToggle={handleToggle}
+                _id={post._id}
+              />
             </li>
           )
         })}
