@@ -3,11 +3,12 @@ import api from "./apiConfig.js";
 export const getPosts = async () => {
   try {
     const res = await api.get('/posts')
+    console.log(res);
     return res.data
   } catch (error) {
     throw error
-  }
-}
+  };
+};
 
 export const getPost = async id => {
   try {
@@ -15,17 +16,17 @@ export const getPost = async id => {
     return res.data
   } catch (error) {
     throw error
-  }
-}
+  };
+};
 
-export const createPost = async post => {
+export const createPost = async (post) => {
   try {
     const res = await api.post('/new', post)
     return res.data
   } catch (error) {
     throw error
-  }
-}
+  };
+};
 
 export const updatePost = async (id, post) => {
   try {
@@ -33,14 +34,14 @@ export const updatePost = async (id, post) => {
     return res.data
   } catch (error) {
     throw error
-  }
-}
+  };
+};
 
-export const deletePost = async id => {
+export const deletePost = async (id) => {
   try {
     const res = await api.delete(`/posts/:${id}`)
     return res.data
   } catch (error) {
     throw error
-  }
-}
+  };
+};
