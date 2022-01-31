@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import api from "../services/apiConfig";
 import DeleteButton from "../components/DeleteButton.jsx"
-// import api from "../services/apiConfig";
 
-import { getPosts } from "../services/post.js"
+import {getPosts} from "../services/post.js"
 import Layout from "./Layout";
 
 export default function PostList() {
@@ -12,10 +9,10 @@ export default function PostList() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await api.get()
-      setPosts(res.data.records);
+      const posts = await getPosts()
+      setPosts(posts.data);
     };
-    fetchPosts()
+    fetchPosts();
   }, []);
 
 
@@ -32,7 +29,9 @@ export default function PostList() {
               <div>
                 <h3>{post.title}</h3>
                 <h4>{post.content}</h4>
-                <DeleteButton />
+                <DeleteButton
+                  _id = {post._id}
+                />
               </div>
             </li>
           )
