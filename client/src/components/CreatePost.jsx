@@ -22,11 +22,12 @@ export default function CreatePost(props) {
     }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const fields = input;
-    const res = createPost("/new", { fields })
-    setInput(default_input)
+    // const fields = input;
+    // console.log({ fields });
+    await createPost(input)
+    // setInput(default_input)
     navigate("/posts")
   }
 
@@ -37,11 +38,11 @@ export default function CreatePost(props) {
       <form className="create-form" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
-          id="title" value={props.title} type="text" onChange={handleTextInput}
+          id="title" input={input} value={input.title} type="text" onChange={handleTextInput}
         />
         <label htmlFor="content">Content</label>
         <input
-          id="content" value={props.content} type="text" onChange={handleTextInput}
+          id="content" input={input} value={input.content} type="text" onChange={handleTextInput}
         />
         <button className="create-button">Create Post (Dummy)</button>
       </form>
