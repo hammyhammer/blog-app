@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import api from "../services/apiConfig";
+// import api from "../services/apiConfig";
 
+import {getPosts} from "../services/post.js"
 import Layout from "./Layout";
 
 export default function PostList() {
@@ -9,24 +10,26 @@ export default function PostList() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await api.get()
-            setPosts(res.data.records);
+            const posts = await getPosts();
+            setPosts(posts.data);
         };
-        fetchPosts()
+        fetchPosts();
     }, []);
 
     return (
         <Layout>
             <ul> 
-                {posts.map((post) => {
+                {posts?.map((post) => {
+
                     return (
-                        <li key={post.id}>
-                            <Link to={`/api/${post.id}`}>
+                        <li
+                            key={post._id}
+                            className="cards"
+                        >
                                 <div>
-                                    <h3>{post.fields.title}</h3>
-                                    <h4>{post.fields.content}</h4>
+                                    <h3>{post.title}</h3>
+                                    <h4>{post.content}</h4>
                                 </div>
-                            </Link>
                         </li>
                     )
                 })}
