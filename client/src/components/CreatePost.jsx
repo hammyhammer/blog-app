@@ -35,13 +35,13 @@ export default function CreatePost(props) {
     <Layout>
       <h2 className="create-title">Create Post Page</h2>
       <form className="create-form" onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
+        <label className="name" htmlFor="title">Title</label>
         <input
-          id="title" value={props.title} type="text" onChange={handleTextInput}
+             id="title" value={props.title} type="text" onChange={handleTextInput}
         />
-        <label htmlFor="content">Content</label>
-        <input
-          id="content" value={props.content} type="text" onChange={handleTextInput}
+        <label className="name" htmlFor="content">Content</label>
+        <textarea
+            id="content" value={props.content} type="text" onChange={handleTextInput}
         />
         <button className="create-button">Create Post (Dummy)</button>
       </form>
