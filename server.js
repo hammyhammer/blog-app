@@ -5,7 +5,6 @@ import cors from 'cors';
 import { initMongoServer } from "./db/connection.js";
 import posts from "./routes/posts.js"; //
 import bodyParser from "body-parser";
-// import cookieParser from "cookie-parser";
 
 initMongoServer();
 const app = express();
@@ -15,7 +14,6 @@ const db = mongoose.connection;
 app.use(express.json());
 app.use(cors());
 app.use("/api", posts);
-// app.use(cookieParser());
 app.use(bodyParser.json()).use(bodyParser.urlencoded({ extended: false }));
 
 db.on("error", error => console.log(error.message));
