@@ -5,12 +5,12 @@ export default function CreatePost() {
         <Layout>
             <h2 className="create-title">Create Post Page</h2>
             <form className= "create-form">
-                <label htmlFor="title">Title</label>
+                <label className="name" htmlFor="title">Title</label>
                 <input
                     type="text"
                 />
-                <label htmlFor="content">Content</label>
-                <input
+                <label className="name" htmlFor="content">Content</label>
+                <textarea
                     type="text"
                 />
                 <button className="create-button">Create Post (Dummy)</button>
