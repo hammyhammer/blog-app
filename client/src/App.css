@@ -1,0 +1,24 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  border: 2px solid blue;
+} 
+
+.link {
+  text-decoration: none;
+  color:black;
+  font-size: 1.5em;
+  font-family: cursive;
+}
+
+/* nav a {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-decoration: none; */
+  /* color: black */
+/* } */
+
+
+
