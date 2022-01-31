@@ -18,13 +18,13 @@ export default function PostList() {
     return (
         <Layout>
             <ul> 
-                {posts.map((posts) => {
+                {posts.map((post) => {
                     return (
-                        <li key={posts.id}>
-                            <Link to={`/api/${posts.id}`}>
+                        <li key={post.id}>
+                            <Link to={`/api/${post.id}`}>
                                 <div>
-                                    <h3>{posts.fields.title}</h3>
-                                    <h4>{posts.fields.content}</h4>
+                                    <h3>{post.fields.title}</h3>
+                                    <h4>{post.fields.content}</h4>
                                 </div>
                             </Link>
                         </li>
