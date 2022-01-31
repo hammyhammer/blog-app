@@ -6,7 +6,7 @@ export default function DeleteButton(props) {
 
   const handleDelete = async () => {
     await api.delete(`/${props.id}`);
-    toast("Deleting Post");
+    // toast("Deleting Post");
     setTimeout(() => {
       navigate("/api/posts");
     }, 3000);
