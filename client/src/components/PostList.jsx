@@ -24,28 +24,25 @@ export default function PostList() {
     <Layout>
       <ul>
         {posts?.map((post) => {
-
           return (
-            <Link
-              to = {`/update/${post._id}`}
+            <li
+              className="cards"
               key={post._id}
-              _id={post._id}
-              title={post.title}
-              content={post.content}
             >
-              <li
-                className="cards"
+              <Link
+                to = {`/update/${post._id}`}
+                _id={post._id}
+                title={post.title}
+                content={post.content}
               >
-                <div>
                   <h3>{post.title}</h3>
                   <h4>{post.content}</h4>
-                  <DeleteButton 
-                    handleToggle={handleToggle}
-                    _id={post._id}
-                  />
-                </div>
-              </li>
-            </Link>
+              </Link>
+              <DeleteButton 
+                handleToggle={handleToggle}
+                _id={post._id}
+              />
+            </li>
           )
         })}
       </ul>
