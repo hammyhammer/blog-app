@@ -21,13 +21,14 @@ export default function PostList() {
             <ul> 
                 {posts?.map((post) => {
                     return (
-                        <li key={post._id}>
-                            <Link to={`/api/${post._id}`}>
+                        <li
+                            key={post._id}
+                            className="cards"
+                        >
                                 <div>
                                     <h3>{post.title}</h3>
                                     <h4>{post.content}</h4>
                                 </div>
-                            </Link>
                         </li>
                     )
                 })}
