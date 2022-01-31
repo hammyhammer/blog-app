@@ -5,11 +5,11 @@ import api from "../services/apiConfig";
 import Layout from "./Layout";
 
 export default function PostList() {
-    const [post, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await api.get(/** waiting for api config */)
+            const res = await api.get()
             setPosts(res.data.records);
         };
         fetchPosts()
@@ -18,13 +18,13 @@ export default function PostList() {
     return (
         <Layout>
             <ul> 
-                {post.map((post) => {
+                {posts.map((posts) => {
                     return (
-                        <li key={post.id}>
-                            <Link to={`/api/${post.id}`}>
+                        <li key={posts.id}>
+                            <Link to={`/api/${posts.id}`}>
                                 <div>
-                                    <h3>{post.fields.title}</h3>
-                                    <h4>{post.fields.content}</h4>
+                                    <h3>{posts.fields.title}</h3>
+                                    <h4>{posts.fields.content}</h4>
                                 </div>
                             </Link>
                         </li>
