@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import DeleteButton from "../components/DeleteButton.jsx"
-
-import {getPosts} from "../services/post.js"
+import { deletePost } from "../services/post.js";
+import { getPosts } from "../services/post.js"
 import Layout from "./Layout";
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
+  const [toggle, setToggle] = useState(true)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -13,8 +14,10 @@ export default function PostList() {
       setPosts(posts.data);
     };
     fetchPosts();
-  }, []);
-
+  }, [toggle]);
+  const handleToggle = () => {
+    setToggle(!toggle)
+  }
 
   return (
     <Layout>
@@ -29,8 +32,8 @@ export default function PostList() {
               <div>
                 <h3>{post.title}</h3>
                 <h4>{post.content}</h4>
-                <DeleteButton
-                  _id = {post._id}
+                <DeleteButton handleToggle={handleToggle}
+                  _id={post._id}
                 />
               </div>
             </li>
