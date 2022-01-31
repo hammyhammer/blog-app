@@ -20,6 +20,7 @@ export default function PostList() {
         <Layout>
             <ul> 
                 {posts?.map((post) => {
+
                     return (
                         <li
                             key={post._id}
