@@ -1,13 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import { deletePost } from "../services/post.js";
+import { deletePost } from "../services/post";
+
+
 
 export default function DeleteButton(props) {
-  const navigate = useNavigate();
-
   const handleDelete = async () => {
     await deletePost(props._id);
-    // Use navigate is not firing on event.
-    navigate("/posts");
+    props.handleToggle()
   };
 
   return <button onClick={handleDelete}>Delete Post</button>;
